@@ -1,7 +1,8 @@
 import React from 'react';
-
+import Image from './Image';
 export default function Content (props) {  
 let content = {...props.content};
+let image = {...props.image};
 console.log(JSON.stringify(content.explanation));
 let strValue = JSON.stringify(content.explanation);
 
@@ -17,13 +18,19 @@ if (strValue !== undefined){
 
     return (
         <div className="content-container">
-            <h2 className="content-header">{content.title}</h2>
-            <p className="firstParagraph">
-                <span className="firstLetter">
-                    {firstLetter}
-                </span>
-                {firstParagraph}
-            </p>
+            <div className="header-div">
+                <h2 className="section-header">Today's Picture:</h2>
+                <h3 className="content-header">{content.title}</h3>
+            </div>
+            <div className="content-image-container">
+                <Image image={image}/>
+                <p className="firstParagraph">
+                    <span className="firstLetter">
+                        {firstLetter}
+                    </span>
+                    {firstParagraph}
+                </p>
+            </div>
         </div>
     )
 }
